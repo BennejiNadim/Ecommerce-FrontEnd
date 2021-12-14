@@ -24,7 +24,10 @@ export class HomeComponent implements OnInit {
   }
   addToCart(product)
   {
-    this.cartList=JSON.parse(localStorage.getItem('cartProducts'));
+    if(localStorage.getItem('cartProducts')!=null){
+      this.cartList=JSON.parse(localStorage.getItem('cartProducts'));
+    }
+    
     this.cartList.push(product);
   //  console.log(this.cartList);
     localStorage.setItem("cartProducts",JSON.stringify(this.cartList)) ;

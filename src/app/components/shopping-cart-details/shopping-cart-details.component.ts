@@ -20,12 +20,15 @@ export class ShoppingCartDetailsComponent implements OnInit {
     this.cartProducts=JSON.parse(localStorage.getItem('cartProducts'));
     console.log("updated cart :"+this.cartProducts);
 
-  
-    this.itemCount=this.cartProducts.length;
-    for(let product of this.cartProducts)
-    {
-      this.totalPrice=this.totalPrice+product.prix;
+    if(this.cartProducts!=null){
+      this.itemCount=this.cartProducts.length;
+      for(let product of this.cartProducts)
+      {
+        this.totalPrice=this.totalPrice+product.prix;
+      }
     }
+  
+   
     console.log("price"+this.totalPrice);
   }
   plusItem(product)
