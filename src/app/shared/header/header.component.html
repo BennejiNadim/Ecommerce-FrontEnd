@@ -1,0 +1,79 @@
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <nav class="navbar navbar-expand-xl navbar-light">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown" >
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                  <a class="nav-link" routerLink="/home" aria-current="page">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" routerLink="/categories" >categories</a>
+                              </li>
+                              <li class="nav-item" *ngIf="user.roles[0]=='ADMIN'">
+                                <a class="nav-link" routerLink="/products" >products</a>
+                            </li>
+                            <li class="nav-item" *ngIf="user.roles[0]=='ADMIN'">
+                              <a class="nav-link" routerLink="/users" >users</a>
+                          </li>
+                            </ul>
+                        </div>
+         
+                    </div>
+                </nav>
+            </div>
+
+            <div class="col-lg-4 col-md-3">
+                <div class="header-search mt-2">
+                    <div class="search-form">
+                        <form method="get">
+                            <div class="input-group">
+                                <div class="select-style">
+                                    <select name="order">
+                                        <option class="topshow" value="1">Catgories</option>
+                                        <option *ngFor="let category of categories"value="a">{{category.nomCategory}}</option>
+                                    
+                                    </select>
+                                </div>
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Search Here" />
+                                <div class="input-group-addon">
+                                    <button type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 cart-login">
+                <div class="float-end">
+        
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button type="button" class="btn btn-light mt-2 btn-sm" (click)="logOut()">Logout</button>
+                      
+                  </div>
+                <div class="float-end cart mt-2">
+                    <a class="underlineHover" routerLink="/cartDetails">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-shopping-cart" style="font-size:26px"></i>
+                        
+                        
+                    </a>
+                </div>
+
+               
+            </div>
+
+     
+        </div>
+    </div>
+</header>
